@@ -23,16 +23,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="PM_GUI.qrc">
+    <QtRcc Include="PM_GUI_.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <QtUic Include="PM_GUI.ui">
+    <QtUic Include="PM_GUI_.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtMoc Include="PM_GUI.h">
+    <QtMoc Include="PM_GUI_.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClCompile Include="PM_GUI.cpp">
+    <ClCompile Include="PM_GUI_.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,5 +40,27 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Manager_Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee_Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Manager_Window.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Employee_Window.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Manager_Window.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Employee_Window.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E8125786-5EDC-4A90-AF42-175299AACF85}</ProjectGuid>
+    <ProjectGuid>{39F35775-B1EC-4E04-BAD4-F08E32937C48}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
@@ -38,7 +38,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>QT_5.15.2</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
-    <QtBuildConfig>debug</QtBuildConfig>
+    <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
@@ -85,11 +85,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="PM_GUI.qrc" />
-    <QtUic Include="PM_GUI.ui" />
-    <QtMoc Include="PM_GUI.h" />
-    <ClCompile Include="PM_GUI.cpp" />
+    <QtRcc Include="PM_GUI_.qrc" />
+    <QtUic Include="Employee_Window.ui" />
+    <QtUic Include="Manager_Window.ui" />
+    <QtUic Include="PM_GUI_.ui" />
+    <QtMoc Include="PM_GUI_.h" />
+    <ClCompile Include="Employee_Window.cpp" />
+    <ClCompile Include="Manager_Window.cpp" />
+    <ClCompile Include="PM_GUI_.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Manager_Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Employee_Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
