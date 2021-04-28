@@ -2,6 +2,8 @@
 
 #include <QWidget>
 #include "ui_Manager_Window.h"
+#include <QMessageBox>
+
 
 class Manager_Window : public QWidget, public Ui::Manager_Window
 {
@@ -10,7 +12,9 @@ class Manager_Window : public QWidget, public Ui::Manager_Window
 public:
 	Manager_Window(QWidget *parent = Q_NULLPTR);
 	~Manager_Window();
-
+public slots:
+	void on_Logout_Button_clicked();
 private:
 	Ui::Manager_Window *ui;
+	
 };

@@ -39,7 +39,7 @@ int main()
     switch (SQLDriverConnect(sqlConnHandle,
         NULL,
         //(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1433;DATABASE=master;UID=username;PWD=password;",
-        (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1434;DATABASE=Northwind;Trusted=true;",
+        (SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1434;DATABASE=Project_Manager;Trusted=true;",
         SQL_NTS,
         retconstring,
         1024,
@@ -73,7 +73,7 @@ int main()
     cout << "\n";
     //if there is a problem executing the query then exit application
     //else display query result
-    if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR*)L"SELECT *FROM Customers", SQL_NTS)) {
+    if (SQL_SUCCESS != SQLExecDirect(sqlStmtHandle, (SQLWCHAR*)L"SELECT C.Email as 'EMAIL', C.Password as 'PASS' FROM Managers as M inner join Users as U on U.User_Id = M.User_Id inner join Credentials as C on C.Credential_Id = U.Credential_Id WHERE U.Company_Id = 1", SQL_NTS)) {
         cout << "Error querying SQL Server";
         cout << "\n";
         goto COMPLETED;
@@ -81,7 +81,7 @@ int main()
     else {
         //declare output variable and pointer
         SQLCHAR sqlVersion[SQL_RESULT_LEN];
-        SQLINTEGER ptrSqlVersion;
+        SQLLEN ptrSqlVersion;
         cout << "\nQuery Result:\n\n";
         while (SQLFetch(sqlStmtHandle) == SQL_SUCCESS) {
             SQLGetData(sqlStmtHandle, 1, SQL_CHAR, sqlVersion, SQL_RESULT_LEN, &ptrSqlVersion);

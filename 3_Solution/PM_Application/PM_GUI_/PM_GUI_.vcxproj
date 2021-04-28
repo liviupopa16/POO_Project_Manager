@@ -101,6 +101,11 @@
   <ItemGroup>
     <QtMoc Include="Employee_Window.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PM_Core\PM_Core.vcxproj">
+      <Project>{2e81c080-6a3c-43e6-93fb-981b4daac906}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

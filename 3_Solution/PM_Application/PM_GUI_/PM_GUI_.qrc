@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="PM_GUI_">
-    </qresource>
+  <qresource prefix="/PM_GUI_">
+    <file>Resources/Team.jpg</file>
+    <file>Resources/Login_Main_Background.jpg</file>
+  </qresource>
 </RCC>

@@ -20,9 +20,9 @@ public:
 
 public slots:
     void on_Login_Button_clicked();
-
 private:
     Ui::PM_GUI_Class *ui;
     Manager_Window* managerWindow;
     Employee_Window* employeeWindow;
+
 };
