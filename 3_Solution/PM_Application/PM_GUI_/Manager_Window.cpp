@@ -5,10 +5,26 @@ Manager_Window::Manager_Window(QWidget *parent) : QWidget(parent)
 {
 	ui = new Ui::Manager_Window();
 	ui->setupUi(this);
+
+	database = QSqlDatabase::addDatabase("QODBC");
+	database.setHostName("localhost");
+	database.setDatabaseName("DRIVER={SQL Server};SERVER=localhost, 1434;DATABASE=Project_Manager;Trusted=true;");
+
+	if (database.open())
+	{
+		querymodel = new QSqlQueryModel();
+		querymodel->setQuery("SELECT * FROM Projects");
+		ui->tableView->setModel(querymodel);
+	}
+	else
+	{
+		QMessageBox::information(this, "Failed", "Connection failed");
+	}
 }
 
 Manager_Window::~Manager_Window()
 {
+	database.close();
 	delete ui;
 }
 
