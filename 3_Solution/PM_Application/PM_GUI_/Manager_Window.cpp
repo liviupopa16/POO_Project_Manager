@@ -1,7 +1,8 @@
 #include "Manager_Window.h"
 #include "PM_GUI_.h"
 
-Manager_Window::Manager_Window(QWidget *parent) : QWidget(parent)
+
+Manager_Window::Manager_Window(int ID, QWidget *parent) : QWidget(parent)
 {
 	ui = new Ui::Manager_Window();
 	ui->setupUi(this);
@@ -10,11 +11,18 @@ Manager_Window::Manager_Window(QWidget *parent) : QWidget(parent)
 	database.setHostName("localhost");
 	database.setDatabaseName("DRIVER={SQL Server};SERVER=localhost, 1434;DATABASE=Project_Manager;Trusted=true;");
 
+	CredID = ID;
+	QString CID = QString::number(ID);
+
 	if (database.open())
 	{
 		querymodel = new QSqlQueryModel();
-		querymodel->setQuery("SELECT * FROM Projects");
+		querymodel->setQuery("SELECT * FROM Credentials where Credential_Id = '"+CID+"'");
 		ui->tableView->setModel(querymodel);
+
+		querymodelFN = new QSqlQueryModel();
+		querymodelFN->setQuery("SELECT AD.First_Name FROM Users as U inner join Credentials as C on C.Credential_Id = U.Credential_Id inner join Account_Details as AD ON U.Account_Id = AD.Account_Id WHERE C.Credential_Id = " + CID);
+		ui->viewFN->setModel(querymodelFN);
 	}
 	else
 	{

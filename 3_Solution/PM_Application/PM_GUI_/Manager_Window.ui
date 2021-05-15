@@ -79,17 +79,17 @@ background-color: rgba(0, 0, 0, 25%);</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Projects</string>
     </attribute>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>410</y>
+       <x>40</x>
+       <y>260</y>
        <width>211</width>
        <height>41</height>
       </rect>
@@ -122,7 +122,7 @@ border: 2px solid white;
 border-radius: 9px;</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>41</x>
@@ -177,13 +177,71 @@ border-radius: 9px;</string>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>Account Details</string>
     </attribute>
-   </widget>
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>Page</string>
-    </attribute>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+     </property>
+     <property name="text">
+      <string>First Name -&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>170</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+     </property>
+     <property name="text">
+      <string>Last Name -&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QListView" name="viewFN">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>110</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

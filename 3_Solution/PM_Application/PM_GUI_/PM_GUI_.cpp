@@ -9,12 +9,23 @@ PM_GUI_::PM_GUI_(QWidget *parent) : QMainWindow(parent), ui(new Ui::PM_GUI_Class
     ui->setupUi(this);
     QShortcut* returnShortcut = new QShortcut(QKeySequence("Return"), ui->centralWidget);
     QObject::connect(returnShortcut, SIGNAL(activated()), ui->Login_Button, SLOT(click()));
+
+    database = QSqlDatabase::addDatabase("QODBC");
+    database.setHostName("localhost");
+    database.setDatabaseName("DRIVER={SQL Server};SERVER=localhost, 1434;DATABASE=Project_Manager;Trusted=true;");
+    
 }
 
 PM_GUI_::~PM_GUI_()
 {
     delete ui;
+    database.close();
 }
+
+
+
+
+
 
 void PM_GUI_::on_Login_Button_clicked()
 {
@@ -33,8 +44,98 @@ void PM_GUI_::on_Login_Button_clicked()
     msg2.setText("Incorrect username or password!");
     msg2.setWindowIcon(QIcon(pixmap));
 
+  
 
-    if (username == "manager" && password == "manager")
+
+    if (database.open())
+    {
+        querymodel = new QSqlQueryModel();
+        querymodel->setQuery("select Credential_Id from Credentials where Email = '" + username + "'");
+        credID = querymodel->data(querymodel->index(0, 0)).toInt();
+
+        ///
+
+        querymodel->setQuery("SELECT Email, Password FROM Credentials as C inner join Users as U on C.Credential_Id = U.Credential_Id inner join Managers as M on M.User_Id = U.User_Id WHERE Email='" + username + "' AND Password='" + password + "'");        
+        if (querymodel->rowCount() == 1)
+        {
+            msg1.setText("You have been successfully \n  logged in as a manager!");
+            msg1.exec();
+            close();
+            managerWindow = new Manager_Window(credID);
+            managerWindow->show();
+        }
+        else
+        {
+            querymodel->setQuery("SELECT Email, Password FROM Credentials as C inner join Users as U on C.Credential_Id = U.Credential_Id inner join Employees as E on E.User_Id = U.User_Id WHERE Email='" + username + "' AND Password='" + password + "'");
+            if (querymodel->rowCount() == 1)
+            {
+                msg1.setText("You have been successfully \n  logged in as a employee!");
+                msg1.exec();
+                hide();
+                employeeWindow = new Employee_Window;
+                employeeWindow->show();
+            }
+            else
+            {
+                msg2.exec();
+            }
+        }
+    }
+    else
+    {
+        QMessageBox::information(this, "Failed", "Database connection failed");
+    }
+
+
+
+    //QSqlQuery qq;
+    ////qq.prepare("SELECT Email, Password FROM Credentials WHERE Email='" + username + "' AND Password='" + password + "'");
+   
+    //qq.prepare(" SELECT Email, Password FROM Credentials WHERE Password = 'test'");
+
+
+
+    //if(!qq.exec())
+    //{
+
+    //    if (qq.size() > 0)
+    //    {
+    //        msg1.setText("a mers \n  logged in as a manager!");
+    //        msg1.exec();
+    //    }
+    //    else
+    //    {
+    //        msg1.setText("e gol tabelu \n  e gol tabelu");
+    //        msg1.exec();
+    //    }
+    //    
+
+
+    //  /*  int count = 0;
+    //    while (qq.next())
+    //    {
+    //        count++;
+    //    }
+    //    if (count == 1)
+    //    {
+    //        msg1.setText("You have been successfully \n  logged in as a manager!");
+    //        msg1.exec();
+    //        close();
+    //        managerWindow = new Manager_Window;
+    //        managerWindow->show();
+    //    }
+    //    else
+    //    {
+    //        msg2.exec();
+    //    }*/
+    //}
+    //else
+    //{
+    //    msg1.setText("Nu a mers \n  NUUUUUUUUUUU");
+    //    msg1.exec();
+    //}
+
+    /*if (username == "manager" && password == "manager")
     {
         msg1.setText("You have been successfully \n  logged in as a manager!");
         msg1.exec();
@@ -56,7 +157,7 @@ void PM_GUI_::on_Login_Button_clicked()
         {
             msg2.exec();
         }
-    }
+    }*/
 }
 
 
