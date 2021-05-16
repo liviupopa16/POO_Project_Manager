@@ -32,64 +32,45 @@
   <property name="styleSheet">
    <string notr="true">background-color:#2196F5;</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelTitle">
    <property name="geometry">
     <rect>
      <x>90</x>
      <y>0</y>
-     <width>541</width>
+     <width>711</width>
      <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-size:25pt</string>
+    <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 25pt &quot;Comic Sans MS&quot;;</string>
    </property>
    <property name="text">
     <string>Felicitariiii!!! Acum este MANAGER!!!</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Logout_Button">
-   <property name="geometry">
-    <rect>
-     <x>855</x>
-     <y>10</y>
-     <width>140</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color:white;
-font-size:20pt;
-border: 2px solid white;
-border-radius: 9px;
-background: grey;
-background-color: rgba(0, 0, 0, 25%);</string>
-   </property>
-   <property name="text">
-    <string>LOGOUT</string>
-   </property>
-  </widget>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>80</y>
      <width>1011</width>
      <height>531</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
      <string>Projects</string>
     </attribute>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="Add_New_Project">
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>260</y>
+       <y>160</y>
        <width>211</width>
        <height>41</height>
       </rect>
@@ -106,69 +87,535 @@ background-color: rgba(0, 0, 0, 25%);</string>
       <string>ADD NEW PROJECT</string>
      </property>
     </widget>
-    <widget class="QTableView" name="tableView">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>60</y>
-       <width>621</width>
-       <height>401</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:white;
-font-size:20pt;
-border: 2px solid white;
-border-radius: 9px;</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>41</x>
-       <y>91</y>
+       <x>50</x>
+       <y>30</y>
        <width>198</width>
        <height>100</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="2" column="0" colspan="2">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Description</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QLineEdit" name="lineEdit_3"/>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Period</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QLineEdit" name="lineEdit_4"/>
-      </item>
-      <item row="1" column="2">
+      <item row="0" column="2">
        <widget class="QLineEdit" name="lineEdit_2"/>
       </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="lineEdit"/>
-      </item>
-      <item row="1" column="0" colspan="2">
+      <item row="0" column="0" colspan="2">
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Name</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label_2">
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="lineEdit_4"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Project_ID</string>
+         <string>Description</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Period</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QTableView" name="tableProj">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>30</y>
+       <width>621</width>
+       <height>441</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:13pt;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::WinPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Delete_Project">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>370</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;
+border: 2px solid white;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+     </property>
+     <property name="text">
+      <string>Delete Project</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>290</y>
+       <width>189</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Project ID</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="Project_Id_Delete"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Edit Project</string>
+    </attribute>
+    <widget class="QTableView" name="tableTask">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>50</y>
+       <width>611</width>
+       <height>171</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="AddTask">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>390</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;
+border: 2px solid white;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+     </property>
+     <property name="text">
+      <string>ADD NEW TASK</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="listTasks">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>290</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>250</y>
+       <width>221</width>
+       <height>100</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="lineNameTask">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="label_11">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Description -&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="lineNameDesc">
+        <property name="minimumSize">
+         <size>
+          <width>130</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="lineNameDead">
+        <property name="text">
+         <string>dd-mm-yyyy</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Name -&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Deadline -&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="lineEmpID">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Employee ID -&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>250</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;</string>
+     </property>
+     <property name="text">
+      <string>Available Employees</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>284</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Project ID</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="ProjectID_Show">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);
+border: 1px solid white;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ShowTasks">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+border: 1px solid white;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Show Tasks</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>281</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="Pname">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="PDesc">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="PPeriod">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>751</x>
+       <y>321</y>
+       <width>158</width>
+       <height>68</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Task ID</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="TaskID_Delete">
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);
+border: 1px solid white;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="DeleteTask">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-size:15pt;
+border: 1px solid white;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Delete Task</string>
         </property>
        </widget>
       </item>
@@ -179,70 +626,165 @@ border-radius: 9px;</string>
     <attribute name="title">
      <string>Account Details</string>
     </attribute>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>110</y>
-       <width>151</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:white;
-font-size:15pt;
-border-radius: 9px;
-background: grey;
-background-color: rgba(0, 0, 0, 25%);</string>
-     </property>
-     <property name="text">
-      <string>First Name -&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>170</y>
-       <width>151</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:white;
-font-size:15pt;
-border-radius: 9px;
-background: grey;
-background-color: rgba(0, 0, 0, 25%);</string>
-     </property>
-     <property name="text">
-      <string>Last Name -&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QListView" name="viewFN">
+    <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>110</y>
-       <width>151</width>
+       <y>180</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="viewLN_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>180</y>
+       <width>437</width>
        <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">color:white;
-font-size:15pt;
-border-radius: 9px;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
 background: grey;
 background-color: rgba(0, 0, 0, 25%);</string>
      </property>
+     <property name="text">
+      <string>Nume</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>881</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="viewFN">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Prenume</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="viewE">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="viewLN">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Nume</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="viewP">
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Password</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>855</x>
+     <y>10</y>
+     <width>141</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="Logout_Button">
+      <property name="styleSheet">
+       <string notr="true">color:white;
+font-size:20pt;
+border: 2px solid white;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+      </property>
+      <property name="text">
+       <string>LOGOUT</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Refresh">
+      <property name="styleSheet">
+       <string notr="true">color:white;
+font-size:15pt;
+border: 2px solid white;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+      </property>
+      <property name="text">
+       <string>REFRESH</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

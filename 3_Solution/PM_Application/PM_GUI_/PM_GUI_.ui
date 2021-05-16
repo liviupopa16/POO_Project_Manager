@@ -86,52 +86,6 @@ border: 0px;
     <property name="title">
      <string/>
     </property>
-    <widget class="QLineEdit" name="lineEdit_Password">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>80</y>
-       <width>230</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: transparent;
-font-size:18pt;
-color:black;
-border: 2px solid white;
-border-radius: 9px;
-
-background: grey;
-background-color: rgba(0, 0, 0, 25%);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_UserName">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>35</y>
-       <width>230</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: transparent;
-font-size:18pt;
-color:white;
-border: 2px solid white;
-border-radius: 9px;
-
-background: grey;
-background-color: rgba(0, 0, 0, 25%);</string>
-     </property>
-    </widget>
     <widget class="QSplitter" name="splitter">
      <property name="geometry">
       <rect>
@@ -166,6 +120,9 @@ color:white;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label__Password">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="font">
        <font>
         <family>Comic Sans MS</family>
@@ -183,6 +140,52 @@ color: white;</string>
        <string> Password</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>35</y>
+       <width>220</width>
+       <height>78</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="lineEdit_UserName">
+        <property name="styleSheet">
+         <string notr="true">background: transparent;
+font-size:18pt;
+color:white;
+border: 2px solid white;
+border-radius: 9px;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="lineEdit_Password">
+        <property name="styleSheet">
+         <string notr="true">background: transparent;
+font-size:18pt;
+color:black;
+border: 2px solid white;
+border-radius: 9px;
+
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QLabel" name="label">
