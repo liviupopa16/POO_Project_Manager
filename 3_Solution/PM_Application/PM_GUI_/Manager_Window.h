@@ -32,6 +32,7 @@ public slots:
 	void on_AddTask_clicked();
 	void on_DeleteTask_clicked();
 	void on_Refresh_clicked();
+	void on_ChangeP_clicked();
 
 
 private:

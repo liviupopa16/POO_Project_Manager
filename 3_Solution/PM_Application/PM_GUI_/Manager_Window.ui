@@ -35,9 +35,9 @@
   <widget class="QLabel" name="labelTitle">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>30</x>
      <y>0</y>
-     <width>711</width>
+     <width>811</width>
      <height>81</height>
     </rect>
    </property>
@@ -47,20 +47,23 @@ font-family: &quot;Comic Sans MS&quot;;
 font: 75 25pt &quot;Comic Sans MS&quot;;</string>
    </property>
    <property name="text">
-    <string>Felicitariiii!!! Acum este MANAGER!!!</string>
+    <string>Name: ---------- /// Manager ID:-----------</string>
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>0</x>
      <y>80</y>
      <width>1011</width>
      <height>531</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -69,8 +72,8 @@ font: 75 25pt &quot;Comic Sans MS&quot;;</string>
     <widget class="QPushButton" name="Add_New_Project">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>160</y>
+       <x>80</x>
+       <y>210</y>
        <width>211</width>
        <height>41</height>
       </rect>
@@ -91,30 +94,112 @@ background-color: rgba(0, 0, 0, 25%);</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>30</y>
-       <width>198</width>
+       <y>90</y>
+       <width>268</width>
        <height>100</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="2">
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0" colspan="2">
        <widget class="QLabel" name="label_3">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>110</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Name</string>
         </property>
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QLineEdit" name="lineEdit_4"/>
+       <widget class="QLineEdit" name="lineEdit_4">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QLineEdit" name="lineEdit_3"/>
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0" colspan="2">
        <widget class="QLabel" name="label_4">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>110</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Description</string>
         </property>
@@ -122,6 +207,23 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
       <item row="2" column="0" colspan="2">
        <widget class="QLabel" name="label_5">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>110</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Period</string>
         </property>
@@ -132,7 +234,7 @@ background-color: rgba(0, 0, 0, 25%);</string>
     <widget class="QTableView" name="tableProj">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>350</x>
        <y>30</y>
        <width>621</width>
        <height>441</height>
@@ -150,13 +252,16 @@ background-color: rgba(0, 0, 0, 25%);</string>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
     </widget>
     <widget class="QPushButton" name="Delete_Project">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>370</y>
-       <width>211</width>
+       <x>100</x>
+       <y>360</y>
+       <width>171</width>
        <height>41</height>
       </rect>
      </property>
@@ -172,25 +277,58 @@ background-color: rgba(0, 0, 0, 25%);</string>
       <string>Delete Project</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>290</y>
-       <width>189</width>
-       <height>22</height>
+       <x>70</x>
+       <y>310</y>
+       <width>231</width>
+       <height>35</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
-         <string>Project ID</string>
+         <string>Project ID -&gt;</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="Project_Id_Delete"/>
+       <widget class="QLineEdit" name="Project_Id_Delete">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -212,8 +350,8 @@ background-color: rgba(0, 0, 0, 25%);</string>
     <widget class="QPushButton" name="AddTask">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>390</y>
+       <x>40</x>
+       <y>430</y>
        <width>171</width>
        <height>41</height>
       </rect>
@@ -233,30 +371,50 @@ background-color: rgba(0, 0, 0, 25%);</string>
     <widget class="QTableView" name="listTasks">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>290</y>
+       <x>420</x>
+       <y>280</y>
        <width>256</width>
        <height>192</height>
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>250</y>
-       <width>221</width>
-       <height>100</height>
+       <x>40</x>
+       <y>290</y>
+       <width>291</width>
+       <height>124</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="2">
        <widget class="QLineEdit" name="lineNameTask">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:black;</string>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Name</string>
         </property>
        </widget>
       </item>
@@ -267,6 +425,11 @@ background-color: rgba(0, 0, 0, 25%);</string>
           <width>80</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
         </property>
         <property name="text">
          <string>Description -&gt;</string>
@@ -280,9 +443,20 @@ background-color: rgba(0, 0, 0, 25%);</string>
        <widget class="QLineEdit" name="lineNameDesc">
         <property name="minimumSize">
          <size>
-          <width>130</width>
-          <height>0</height>
+          <width>150</width>
+          <height>25</height>
          </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:black;</string>
         </property>
         <property name="text">
          <string/>
@@ -290,20 +464,48 @@ background-color: rgba(0, 0, 0, 25%);</string>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
+        <property name="placeholderText">
+         <string>Description</string>
+        </property>
        </widget>
       </item>
       <item row="2" column="2">
        <widget class="QLineEdit" name="lineNameDead">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:black;</string>
+        </property>
         <property name="text">
-         <string>dd-mm-yyyy</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>dd-mm-yyyy</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0" colspan="2">
        <widget class="QLabel" name="label_10">
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Name -&gt;</string>
         </property>
@@ -314,6 +516,11 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
       <item row="2" column="0" colspan="2">
        <widget class="QLabel" name="label_12">
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Deadline -&gt;</string>
         </property>
@@ -324,16 +531,41 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
       <item row="3" column="2">
        <widget class="QLineEdit" name="lineEmpID">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:black;</string>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
+        <property name="placeholderText">
+         <string>5XXXX5</string>
+        </property>
        </widget>
       </item>
       <item row="3" column="0" colspan="2">
        <widget class="QLabel" name="label_13">
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
+        </property>
         <property name="text">
          <string>Employee ID -&gt;</string>
         </property>
@@ -347,15 +579,16 @@ background-color: rgba(0, 0, 0, 25%);</string>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>250</y>
+       <x>420</x>
+       <y>240</y>
        <width>261</width>
        <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;
-font-size:15pt;</string>
+      <string notr="true">font: 18pt &quot;Comic Sans MS&quot;;
+background: transparent;
+color:white;</string>
      </property>
      <property name="text">
       <string>Available Employees</string>
@@ -364,10 +597,10 @@ font-size:15pt;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>40</x>
        <y>40</y>
        <width>284</width>
        <height>32</height>
@@ -461,11 +694,11 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>80</y>
+       <x>40</x>
+       <y>90</y>
        <width>281</width>
        <height>131</height>
       </rect>
@@ -524,7 +757,7 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>751</x>
@@ -611,6 +844,7 @@ border: 1px solid white;</string>
 font-size:15pt;
 border: 1px solid white;
 
+border-radius: 9px;
 background: grey;
 background-color: rgba(0, 0, 0, 25%);</string>
         </property>
@@ -639,34 +873,11 @@ background-color: rgba(0, 0, 0, 25%);</string>
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="viewLN_2">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>180</y>
-       <width>437</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:white;
-font-family: &quot;Comic Sans MS&quot;;
-font: 75 15pt &quot;Comic Sans MS&quot;;
-background: grey;
-background-color: rgba(0, 0, 0, 25%);</string>
-     </property>
-     <property name="text">
-      <string>Nume</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QWidget" name="">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>50</y>
+       <y>70</y>
        <width>881</width>
        <height>111</height>
       </rect>
@@ -674,6 +885,18 @@ background-color: rgba(0, 0, 0, 25%);</string>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
        <widget class="QLabel" name="viewFN">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">color:white;
 font-family: &quot;Comic Sans MS&quot;;
@@ -682,7 +905,7 @@ background: grey;
 background-color: rgba(0, 0, 0, 25%);</string>
         </property>
         <property name="text">
-         <string>Prenume</string>
+         <string>First Name</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -691,6 +914,18 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
       <item row="0" column="1">
        <widget class="QLabel" name="viewE">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">color:white;
 font-family: &quot;Comic Sans MS&quot;;
@@ -708,6 +943,18 @@ background-color: rgba(0, 0, 0, 25%);</string>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="viewLN">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">color:white;
 font-family: &quot;Comic Sans MS&quot;;
@@ -716,7 +963,7 @@ background: grey;
 background-color: rgba(0, 0, 0, 25%);</string>
         </property>
         <property name="text">
-         <string>Nume</string>
+         <string>Last Name</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -724,7 +971,13 @@ background-color: rgba(0, 0, 0, 25%);</string>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLabel" name="viewP">
+       <widget class="QLineEdit" name="xlineEdit_pass">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">color:white;
 font-family: &quot;Comic Sans MS&quot;;
@@ -733,7 +986,212 @@ background: grey;
 background-color: rgba(0, 0, 0, 25%);</string>
         </property>
         <property name="text">
-         <string>Password</string>
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Insert new password</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="ChangeP">
+     <property name="geometry">
+      <rect>
+       <x>860</x>
+       <y>190</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>81</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>81</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+font-size:15pt;
+border: 2px solid white;
+border-radius: 9px;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+     </property>
+     <property name="text">
+      <string>SET</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>260</y>
+       <width>880</width>
+       <height>110</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <item row="0" column="0">
+       <widget class="QLabel" name="viewCity">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>City</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="viewState">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>State</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="viewAdress">
+        <property name="minimumSize">
+         <size>
+          <width>878</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>878</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Adress</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>400</y>
+       <width>880</width>
+       <height>53</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="0" column="0">
+       <widget class="QLabel" name="viewPN">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Phone Number</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="viewCompany">
+        <property name="minimumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>436</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+font-family: &quot;Comic Sans MS&quot;;
+font: 75 15pt &quot;Comic Sans MS&quot;;
+background: grey;
+background-color: rgba(0, 0, 0, 25%);</string>
+        </property>
+        <property name="text">
+         <string>Company</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -744,7 +1202,7 @@ background-color: rgba(0, 0, 0, 25%);</string>
     </widget>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>855</x>

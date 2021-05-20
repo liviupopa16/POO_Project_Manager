@@ -21,16 +21,11 @@ Manager_Window::Manager_Window(int ID, QWidget *parent) : QWidget(parent)
 		querymodel1 = new QSqlQueryModel();
 
 
-		querymodel1->setQuery("SELECT * FROM Projects");
-		//ui->listEmp->setModel(querymodel1);
-
-
-
 		/////////////////////////////////////////////////////////
 
 		querymodel->setQuery("SELECT * FROM Users as U inner join Managers as M on M.User_Id = U.User_Id where Credential_Id = '" + CID + "'");
 		QString ManID = querymodel->data(querymodel->index(0, 5)).toString();
-		querymodel->setQuery("SELECT AD.First_Name FROM Users as U inner join Account_Details as AD on AD.Account_Id = U.Account_Id where U.Credential_Id = '" + CID + "'");
+		querymodel->setQuery("SELECT AD.First_Name+ ' ' + AD.Last_Name FROM Users as U inner join Account_Details as AD on AD.Account_Id = U.Account_Id where U.Credential_Id = '" + CID + "'");
 		QString Prenume = querymodel->data(querymodel->index(0, 0)).toString();
 		ui->labelTitle->setText("Name: "+ Prenume +" /// Manager ID: " + ManID);
 
@@ -44,13 +39,33 @@ Manager_Window::Manager_Window(int ID, QWidget *parent) : QWidget(parent)
 		QString Email = querymodel->data(querymodel->index(0, 0)).toString();
 		ui->viewE->setText("Email  ->  " + Email);
 
-		querymodel->setQuery("SELECT Password From Credentials where Credential_Id = '" + CID + "'");
-		QString Pass = querymodel->data(querymodel->index(0, 0)).toString();
-		ui->viewP->setText("Password  ->  " + Pass);
+		querymodel->setQuery("SELECT AD.City FROM Users as U inner join Credentials as C on C.Credential_Id = U.Credential_Id inner join Account_Details as AD ON U.Account_Id = AD.Account_Id WHERE C.Credential_Id = '" + CID + "'");
+		QString City = querymodel->data(querymodel->index(0, 0)).toString();
+		ui->viewCity->setText("City  ->  " + City);
 
+		querymodel->setQuery("SELECT AD.State FROM Users as U inner join Credentials as C on C.Credential_Id = U.Credential_Id inner join Account_Details as AD ON U.Account_Id = AD.Account_Id WHERE C.Credential_Id = '" + CID + "'");
+		QString State = querymodel->data(querymodel->index(0, 0)).toString();
+		ui->viewState->setText("State  ->  " + State);
 
-		querymodel1->setQuery("SELECT P.Project_Id, P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
+		querymodel->setQuery("SELECT AD.Description FROM Users as U inner join Credentials as C on C.Credential_Id = U.Credential_Id inner join Account_Details as AD ON U.Account_Id = AD.Account_Id WHERE C.Credential_Id = '" + CID + "'");
+		QString Description = querymodel->data(querymodel->index(0, 0)).toString();
+		ui->viewAdress->setText(Description);
+
+		querymodel->setQuery("SELECT AD.Phone_Number FROM Users as U inner join Credentials as C on C.Credential_Id = U.Credential_Id inner join Account_Details as AD ON U.Account_Id = AD.Account_Id WHERE C.Credential_Id = '" + CID + "'");
+		QString Phone = querymodel->data(querymodel->index(0, 0)).toString();
+		ui->viewPN->setText("Phone Number  ->  " + Phone);
+
+		querymodel->setQuery("SELECT C.Name FROM Users as U inner join Company as C on C.Company_Id = U.Company_Id WHERE U.Credential_Id = '" + CID + "'");
+		QString Company = querymodel->data(querymodel->index(0, 0)).toString();
+		ui->viewCompany->setText("Working at " + Company);
+
+		querymodel1->setQuery("SELECT P.Project_Id as 'ID', P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
 		ui->tableProj->setModel(querymodel1);
+		ui->tableProj->setColumnWidth(0, 70);
+		ui->tableProj->setColumnWidth(1, 120);
+		ui->tableProj->setColumnWidth(2, 315);
+		ui->tableProj->setColumnWidth(3, 95);
+		
 
 
 		QSqlQueryModel QgetMID;
@@ -64,6 +79,7 @@ Manager_Window::Manager_Window(int ID, QWidget *parent) : QWidget(parent)
 
 		querymodel->setQuery("SELECT AD.First_Name + ' ' + AD.Last_Name as 'Employee Name',E.Employee_Id  FROM Employees as E inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE E.Task_Id is NULL and U.Company_Id = '" + CompanyID + "'");
 		ui->listTasks->setModel(querymodel);
+		ui->listTasks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 
 	}
@@ -135,8 +151,13 @@ void Manager_Window::on_Delete_Project_clicked()
 			msg1.exec();
 			break;
 		}
-		querymodel1->setQuery("SELECT P.Project_Id, P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
+		querymodel1->setQuery("SELECT P.Project_Id as 'ID', P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
 		ui->tableProj->setModel(querymodel1);
+		ui->tableProj->setColumnWidth(0, 70);
+		ui->tableProj->setColumnWidth(1, 120);
+		ui->tableProj->setColumnWidth(2, 315);
+		ui->tableProj->setColumnWidth(3, 95);
+
 	}
 }
 
@@ -170,8 +191,13 @@ void Manager_Window::on_Add_New_Project_clicked()
 		msg1.setText("Project added successfully!");
 		msg1.exec();
 
-		querymodel1->setQuery("SELECT P.Project_Id, P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
+		querymodel1->setQuery("SELECT P.Project_Id as 'ID', P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
 		ui->tableProj->setModel(querymodel1);
+		ui->tableProj->setColumnWidth(0, 70);
+		ui->tableProj->setColumnWidth(1, 120);
+		ui->tableProj->setColumnWidth(2, 315);
+		ui->tableProj->setColumnWidth(3, 95);
+
 
 		ui->lineEdit_2->setText("");
 		ui->lineEdit_3->setText("");
@@ -186,8 +212,15 @@ void Manager_Window::on_ShowTasks_clicked()
 	QString PID;
 	querymodel = new QSqlQueryModel();
 	ProjectID = ui->ProjectID_Show->text();
-	querymodel->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
+	querymodel->setQuery("SELECT T.Task_Id as 'ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline, T.Status as 'Progress %' FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
 	ui->tableTask->setModel(querymodel);
+	ui->tableTask->setColumnWidth(0, 25);
+	ui->tableTask->setColumnWidth(1, 120);
+	ui->tableTask->setColumnWidth(2, 220);
+	ui->tableTask->setColumnWidth(3, 95);
+	ui->tableTask->setColumnWidth(4, 95);
+	ui->tableTask->setColumnWidth(5, 75);
+
 
 	querymodel1 = new QSqlQueryModel();
 	querymodel1->setQuery("SELECT Name FROM Projects WHERE Project_Id = '" + ProjectID + "'");
@@ -214,11 +247,12 @@ void Manager_Window::on_AddTask_clicked()
 		QString EmpID = ui->lineEmpID->text();
 		
 
-		QInsertNewTask.prepare("INSERT INTO [Project_Manager].[dbo].[Tasks] ([Project_Id],[Name],[Description],[Deadline]) VALUES(:projid,:name,:description,:deadline)");
+		QInsertNewTask.prepare("INSERT INTO [Project_Manager].[dbo].[Tasks] ([Project_Id],[Name],[Description],[Deadline],[Status]) VALUES(:projid,:name,:description,:deadline,:status)");
 		QInsertNewTask.bindValue(":projid", ProjectID);
 		QInsertNewTask.bindValue(":name", Name);
 		QInsertNewTask.bindValue(":description", Description);
 		QInsertNewTask.bindValue(":deadline", Deadline);
+		QInsertNewTask.bindValue(":status", 0);
 		QInsertNewTask.exec();
 
 		querymodel = new QSqlQueryModel();
@@ -240,13 +274,21 @@ void Manager_Window::on_AddTask_clicked()
 		msg1.setText("Task added successfully!");
 		msg1.exec();
 
-
-		querymodel->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
-		ui->tableTask->setModel(querymodel);
+		querymodel2 = new QSqlQueryModel();
+		querymodel2->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline, T.Status FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
+		ui->tableTask->setModel(querymodel2);
+		ui->tableTask->setColumnWidth(0, 25);
+		ui->tableTask->setColumnWidth(1, 120);
+		ui->tableTask->setColumnWidth(2, 220);
+		ui->tableTask->setColumnWidth(3, 95);
+		ui->tableTask->setColumnWidth(4, 95);
+		ui->tableTask->setColumnWidth(5, 75);
 
 		querymodel1 = new QSqlQueryModel();
 		querymodel1->setQuery("SELECT AD.First_Name + ' ' + AD.Last_Name as 'Employee Name',E.Employee_Id  FROM Employees as E inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE E.Task_Id is NULL and U.Company_Id = '" + CompanyID + "'");
 		ui->listTasks->setModel(querymodel1);
+		ui->listTasks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
 
 		ui->lineNameTask->setText("");
 		ui->lineNameDesc->setText("");
@@ -298,26 +340,82 @@ void Manager_Window::on_DeleteTask_clicked()
 			break;
 		}
 		querymodel = new QSqlQueryModel();
-		querymodel->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
+		querymodel->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline, T.Status FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
 		ui->tableTask->setModel(querymodel);
+		ui->tableTask->setColumnWidth(0, 25);
+		ui->tableTask->setColumnWidth(1, 120);
+		ui->tableTask->setColumnWidth(2, 220);
+		ui->tableTask->setColumnWidth(3, 95);
+		ui->tableTask->setColumnWidth(4, 95);
+		ui->tableTask->setColumnWidth(5, 75);
 
 		querymodel1 = new QSqlQueryModel();
 		querymodel1->setQuery("SELECT AD.First_Name + ' ' + AD.Last_Name as 'Employee Name',E.Employee_Id  FROM Employees as E inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE E.Task_Id is NULL and U.Company_Id = '" + CompanyID + "'");
 		ui->listTasks->setModel(querymodel1);
+		ui->listTasks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
 	}
 }
 
 void Manager_Window::on_Refresh_clicked()
 {
 	querymodel = new QSqlQueryModel();
-	querymodel->setQuery("SELECT P.Project_Id, P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
+	querymodel->setQuery("SELECT P.Project_Id as 'ID', P.Name, P.Description, P.Period FROM Users as U inner join Managers as M on M.User_Id = U.User_Id inner join Projects as P on P.Manager_Id = M.Manager_Id where U.Credential_Id = '" + CID + "'");
 	ui->tableProj->setModel(querymodel);
+	ui->tableProj->setColumnWidth(0, 70);
+	ui->tableProj->setColumnWidth(1, 120);
+	ui->tableProj->setColumnWidth(2, 315);
+	ui->tableProj->setColumnWidth(3, 95);
+
 
 	querymodel1 = new QSqlQueryModel();
-	querymodel1->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
+	querymodel1->setQuery("SELECT T.Task_Id as 'Task ID', T.Name,T.Description,AD.First_Name + ' ' + AD.Last_Name as 'Employee Name', T.Deadline, T.Status FROM Tasks as T inner join Employees as E on E.Task_Id = T.Task_Id inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE Project_Id = '" + ProjectID + "'");
 	ui->tableTask->setModel(querymodel1);
+	ui->tableTask->setColumnWidth(0, 25);
+	ui->tableTask->setColumnWidth(1, 120);
+	ui->tableTask->setColumnWidth(2, 220);
+	ui->tableTask->setColumnWidth(3, 95);
+	ui->tableTask->setColumnWidth(4, 95);
+	ui->tableTask->setColumnWidth(5, 75);
 
 	querymodel2 = new QSqlQueryModel();
 	querymodel2->setQuery("SELECT AD.First_Name + ' ' + AD.Last_Name as 'Employee Name',E.Employee_Id  FROM Employees as E inner join Users as U on U.User_Id = E.User_Id inner join Account_Details as AD on AD.Account_Id = U.Account_Id WHERE E.Task_Id is NULL and U.Company_Id = '" + CompanyID + "'");
 	ui->listTasks->setModel(querymodel2);
+	ui->listTasks->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+}
+
+void Manager_Window::on_ChangeP_clicked()
+{
+	if (database.open())
+	{
+		QString newPass = ui->xlineEdit_pass->text();
+		QSqlQuery ChangePass;
+		ChangePass.prepare("UPDATE [Project_Manager].[dbo].[Credentials] SET [Password] = :newpass WHERE [Credential_Id] = :cid");
+		ChangePass.bindValue(":newpass", newPass);
+		ChangePass.bindValue(":cid", CID);
+
+		QPixmap pixmap("Resources/icon.png");
+		QMessageBox msg;
+		QMessageBox msg1;
+		msg.setWindowTitle("Changing password");
+		msg.setText("Are you sure you want to change your password?");
+		msg.setIcon(QMessageBox::Question);
+		msg.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+		msg.setWindowIcon(QIcon(pixmap));
+
+		msg1.setWindowTitle("SUCCESS!");
+		msg1.setIcon(QMessageBox::Information);
+		msg1.setWindowIcon(QIcon(pixmap));
+		msg1.setText("Password changed successfully!");
+
+		ret = msg.exec();
+		switch (ret) {
+		case QMessageBox::Yes:
+			ChangePass.exec();
+			msg1.exec();
+			ui->xlineEdit_pass->setText("");
+			break;
+		}
+	}
 }

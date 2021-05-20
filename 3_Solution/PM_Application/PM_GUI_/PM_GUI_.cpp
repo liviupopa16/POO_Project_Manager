@@ -23,10 +23,6 @@ PM_GUI_::~PM_GUI_()
 }
 
 
-
-
-
-
 void PM_GUI_::on_Login_Button_clicked()
 {
     QString username = ui->lineEdit_UserName->text();
@@ -53,7 +49,6 @@ void PM_GUI_::on_Login_Button_clicked()
         querymodel->setQuery("select Credential_Id from Credentials where Email = '" + username + "'");
         credID = querymodel->data(querymodel->index(0, 0)).toInt();
 
-        ///
 
         querymodel->setQuery("SELECT Email, Password FROM Credentials as C inner join Users as U on C.Credential_Id = U.Credential_Id inner join Managers as M on M.User_Id = U.User_Id WHERE Email='" + username + "' AND Password='" + password + "'");        
         if (querymodel->rowCount() == 1)
@@ -72,7 +67,7 @@ void PM_GUI_::on_Login_Button_clicked()
                 msg1.setText("You have been successfully \n  logged in as a employee!");
                 msg1.exec();
                 hide();
-                employeeWindow = new Employee_Window;
+                employeeWindow = new Employee_Window(credID);
                 employeeWindow->show();
             }
             else
@@ -85,79 +80,6 @@ void PM_GUI_::on_Login_Button_clicked()
     {
         QMessageBox::information(this, "Failed", "Database connection failed");
     }
-
-
-
-    //QSqlQuery qq;
-    ////qq.prepare("SELECT Email, Password FROM Credentials WHERE Email='" + username + "' AND Password='" + password + "'");
-   
-    //qq.prepare(" SELECT Email, Password FROM Credentials WHERE Password = 'test'");
-
-
-
-    //if(!qq.exec())
-    //{
-
-    //    if (qq.size() > 0)
-    //    {
-    //        msg1.setText("a mers \n  logged in as a manager!");
-    //        msg1.exec();
-    //    }
-    //    else
-    //    {
-    //        msg1.setText("e gol tabelu \n  e gol tabelu");
-    //        msg1.exec();
-    //    }
-    //    
-
-
-    //  /*  int count = 0;
-    //    while (qq.next())
-    //    {
-    //        count++;
-    //    }
-    //    if (count == 1)
-    //    {
-    //        msg1.setText("You have been successfully \n  logged in as a manager!");
-    //        msg1.exec();
-    //        close();
-    //        managerWindow = new Manager_Window;
-    //        managerWindow->show();
-    //    }
-    //    else
-    //    {
-    //        msg2.exec();
-    //    }*/
-    //}
-    //else
-    //{
-    //    msg1.setText("Nu a mers \n  NUUUUUUUUUUU");
-    //    msg1.exec();
-    //}
-
-    /*if (username == "manager" && password == "manager")
-    {
-        msg1.setText("You have been successfully \n  logged in as a manager!");
-        msg1.exec();
-        close();
-        managerWindow = new Manager_Window;
-        managerWindow->show();
-    }
-    else
-    {
-        if (username == "employee" && password == "employee")
-        {
-            msg1.setText("You have been successfully \n  logged in as a employee!");
-            msg1.exec();
-            hide();
-            employeeWindow = new Employee_Window;
-            employeeWindow->show();
-        }
-        else
-        {
-            msg2.exec();
-        }
-    }*/
 }
 
 

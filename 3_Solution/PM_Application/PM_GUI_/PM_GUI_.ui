@@ -70,6 +70,9 @@ background-color: rgba(0, 0, 0, 25%);</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>33</x>
@@ -77,6 +80,24 @@ background-color: rgba(0, 0, 0, 25%);</string>
       <width>391</width>
       <height>142</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>391</width>
+      <height>142</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>391</width>
+      <height>142</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;
@@ -102,6 +123,24 @@ border: 0px;
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>141</horstretch>
+        <verstretch>38</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>141</width>
+        <height>38</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>141</width>
+        <height>38</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Comic Sans MS</family>
@@ -123,6 +162,24 @@ color:white;</string>
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>141</horstretch>
+        <verstretch>38</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>141</width>
+        <height>38</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>141</width>
+        <height>38</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Comic Sans MS</family>
@@ -141,7 +198,7 @@ color: white;</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -153,6 +210,24 @@ color: white;</string>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
        <widget class="QLineEdit" name="lineEdit_UserName">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>212</horstretch>
+          <verstretch>35</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>212</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>212</width>
+          <height>35</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">background: transparent;
 font-size:18pt;
@@ -163,10 +238,34 @@ border-radius: 9px;
 background: grey;
 background-color: rgba(0, 0, 0, 25%);</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLineEdit" name="lineEdit_Password">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>212</horstretch>
+          <verstretch>35</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>212</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>212</width>
+          <height>35</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">background: transparent;
 font-size:18pt;
@@ -182,6 +281,12 @@ background-color: rgba(0, 0, 0, 25%);</string>
         </property>
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string/>
         </property>
        </widget>
       </item>
